@@ -40,26 +40,9 @@ PureAdmin.inputs.autocompleter = {
         multiple: false,
         theme: 'pure-admin',
         minimumInputLength: 3,
-        templateResult: _formatResult,
-        templateSelection: _formatResultSelection
+        templateResult: PureAdmin.inputs.select.formatResult,
+        templateSelection: PureAdmin.inputs.select.formatResult
       });
     });
-
-    function _formatResult(result) {
-      return result.name || result.text;
-    }
-
-    function _formatResultSelection(result) {
-      return result.name || result.text;
-    }
-
-    this.setLabelClick();
   },
-
-  setLabelClick: function() {
-    // Open the autocompleter input when the addon is clicked.
-    $('.pure-control-group.autocomplete label').on('click', function() {
-      $(this).parents('.pure-control-group.autocomplete').find('.pure-admin-autocompleter').select2('open');
-    });
-  }
 };

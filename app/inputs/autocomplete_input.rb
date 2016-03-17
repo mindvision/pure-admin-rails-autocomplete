@@ -2,7 +2,7 @@
 # Defines the :autocomplete input type.
 # @example <% f.input :occupation, as: :autocomplete, data: { url: admin_occupations_path } %>
 class AutocompleteInput < SimpleForm::Inputs::CollectionSelectInput
-  self.default_options = { prefix: '<i class="fa fa-fw fa-magic"></i>'.html_safe }
+  self.default_options = { icon: 'fa-magic' }
 
   def input
     # Get the currently associated object
@@ -15,7 +15,11 @@ class AutocompleteInput < SimpleForm::Inputs::CollectionSelectInput
       options[:selected] = current_assoc_id
     end
 
-    super
+    if options[:icon]
+      icon = template.content_tag(:span, nil, class: ['input-addon', 'fa', 'fa-fw', options[:icon]])
+    end
+
+    icon + super
   end
 
   def input_html_classes

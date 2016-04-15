@@ -4,7 +4,7 @@
 class AutocompleteInput < SimpleForm::Inputs::CollectionSelectInput
   self.default_options = { icon: 'fa-magic' }
 
-  def input
+  def input(wrapper_options = nil)
     # Get the currently associated object
     current_assoc = object.public_send(attribute_name.to_s.sub('_id', ''))
 
@@ -19,7 +19,7 @@ class AutocompleteInput < SimpleForm::Inputs::CollectionSelectInput
       icon = template.content_tag(:span, nil, class: ['input-addon', 'fa', 'fa-fw', options[:icon]])
     end
 
-    icon + super
+    icon + super(wrapper_options)
   end
 
   def input_html_classes

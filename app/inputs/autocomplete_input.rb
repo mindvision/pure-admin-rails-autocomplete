@@ -12,7 +12,9 @@ class AutocompleteInput < SimpleForm::Inputs::CollectionSelectInput
       current_assoc_id = current_assoc.is_a?(ActiveRecord::Base) ? current_assoc.to_param : current_assoc.to_s
 
       options[:collection] = [[current_assoc.to_s, current_assoc_id]]
-      options[:selected] = current_assoc_id
+      options[:selected] = [current_assoc_id]
+    else
+      options[:collection] = []
     end
 
     if options[:icon]

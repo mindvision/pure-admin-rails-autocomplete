@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'pure-admin-rails-autocomplete'
   s.version     = PureAdmin::Rails::Autocomplete::VERSION
   s.authors     = ['Tobyn Dockerill']
-  s.email       = ['tobyn@mindvision.com.au']
+  s.email       = ['staff@mindvision.com.au']
   s.homepage    = ''
   s.summary     = 'An autocomplete/typeahead input using Select2 and the Select2 Rails gem'
   s.license     = 'MIT'
